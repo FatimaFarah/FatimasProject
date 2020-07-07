@@ -43,7 +43,7 @@ public class MyBlogTest extends BaseIT{
   }
 
   @Test
-  public void printText() {
+  public void printHeadingAndSubheading() {
     System.out.println(myBlogPage.getPageTitle().getText());
     System.out.println(myBlogPage.getSubheading().getText());
   }
