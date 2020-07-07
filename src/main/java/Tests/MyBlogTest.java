@@ -8,7 +8,8 @@ import static org.junit.Assert.assertTrue;
 
 public class MyBlogTest extends BaseIT{
 
-  public MyBlogPage myBlogPage;
+  public MyBlogPage myBlogPage = new MyBlogPage(driver);
+
 
   @Before
   public void openURL() {
@@ -17,7 +18,7 @@ public class MyBlogTest extends BaseIT{
 
   @Test
   public void checkIfPageTitleIsDisplayed() {
-    assertTrue(myBlogPage.checkIfPageTitleIsDisplayed());
+    System.out.println(myBlogPage.checkIfPageTitleIsDisplayed());
   }
 
   @Test

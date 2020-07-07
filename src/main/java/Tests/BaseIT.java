@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import java.util.logging.Logger;
+
 public class BaseIT {
 
   protected static WebDriver driver;
@@ -18,11 +20,13 @@ public class BaseIT {
 
   @BeforeClass
   public static void beforeSuite() {
+
     WebDriverManager.chromedriver().setup();
 
     driver = new ChromeDriver();
     driver.manage().window().maximize();
   }
+
 
   @After
   public void cleanUp() {
