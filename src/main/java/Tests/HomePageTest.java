@@ -28,7 +28,7 @@ public class HomePageTest extends BaseIT{
 
   @Test
   public void clickFeminismMenuTab() {
-    homePage.getFeminismSubheading().click();
+    actions(homePage.getFeminismSubheading()).click();
   }
 
   @Test
