@@ -28,7 +28,24 @@ public class MyBlogTest extends BaseIT{
 
   @Test
   public void clickFeminismMenuTab() {
-    myBlogPage.clickFeminismTab();
+    myBlogPage.getFeminismSubheading().click();
+  }
+
+  @Test
+  public void getMenuTabText() {
+    System.out.println(myBlogPage.getFeminismSubheading().getText());
+    System.out.println(myBlogPage.getBeautySubheading().getText());
+    System.out.println(myBlogPage.getLifeStyleSubheading().getText());
+    System.out.println(myBlogPage.getMentalHealthSubheading().getText());
+    System.out.println(myBlogPage.getNerdySubheading().getText());
+    System.out.println(myBlogPage.get2019Subheading().getText());
+    System.out.println(myBlogPage.getContactSubheading().getText());
+  }
+
+  @Test
+  public void printText() {
+    System.out.println(myBlogPage.getPageTitle().getText());
+    System.out.println(myBlogPage.getSubheading().getText());
   }
 
 }

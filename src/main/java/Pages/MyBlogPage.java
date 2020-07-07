@@ -10,27 +10,42 @@ public class MyBlogPage extends BasePage {
     super(driver);
   }
 
-  private WebElement getPageTitle(){
+  //Page Title
+  public WebElement getPageTitle(){
     return getDriver().findElement(By.cssSelector(".site-title"));
   }
-
   public boolean checkIfPageTitleIsDisplayed() {
     return getPageTitle().isDisplayed();
   }
-
-  private WebElement getSubheading() {
+//Page Subtitle
+  public WebElement getSubheading() {
     return getDriver().findElement(By.cssSelector(".site-description"));
   }
-
   public boolean checkIfPageSubheadingIsDisplayed() {
     return getSubheading().isDisplayed();
   }
-
-  private WebElement getFeminismSubheading() {
+//Menu bars
+  public WebElement getFeminismSubheading() {
     return getDriver().findElement(By.cssSelector("#menu-item-660"));
   }
-
-  public void clickFeminismTab() {
-    getFeminismSubheading().click();
+  public WebElement getBeautySubheading(){
+    return getDriver().findElement(By.cssSelector("#menu-item-539"));
   }
+  public WebElement getLifeStyleSubheading(){
+    return getDriver().findElement(By.cssSelector("#menu-item-541"));
+  }
+  public WebElement getMentalHealthSubheading(){
+    return getDriver().findElement(By.cssSelector("#menu-item-540"));
+  }
+  public WebElement getNerdySubheading(){
+    return getDriver().findElement(By.cssSelector("#menu-item-542"));
+  }
+  public WebElement get2019Subheading(){
+    return getDriver().findElement(By.cssSelector("#menu-item-2652"));
+  }
+  public WebElement getContactSubheading(){
+    return getDriver().findElement(By.cssSelector("#menu-item-103"));
+  }
+
+
 }
