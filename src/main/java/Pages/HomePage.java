@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class HomePage extends BasePage {
 
   public HomePage(WebDriver driver) {
@@ -29,7 +33,7 @@ public class HomePage extends BasePage {
     return getDriver().findElement(By.cssSelector("#menu-item-660"));
   }
   public WebElement getBeautySubheading(){
-    return getDriver().findElement(By.cssSelector("#menu-item-539"));
+    return findElementByCssSelector("#menu-item-539");
   }
   public WebElement getLifeStyleSubheading(){
     return getDriver().findElement(By.cssSelector("#menu-item-541"));
@@ -48,4 +52,17 @@ public class HomePage extends BasePage {
   }
 
 
+  public List<WebElement> getSubHeadings() {
+    return findElementsByCssSelector(Arrays.asList("#menu-item-541", "#menu-item-540"));
+  }
+
+  private List<WebElement> findElementsByCssSelector(List<String> selectors) {
+    return selectors.stream()
+      .map(selector -> findElementByCssSelector(selector))
+      .collect(Collectors.toList());
+  }
+
+  private WebElement findElementByCssSelector(String selector) {
+    return getDriver().findElement(By.cssSelector(selector));
+  }
 }
