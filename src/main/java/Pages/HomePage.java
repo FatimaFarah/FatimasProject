@@ -58,7 +58,7 @@ public class HomePage extends BasePage {
 
   private List<WebElement> findElementsByCssSelector(List<String> selectors) {
     return selectors.stream()
-      .map(selector -> findElementByCssSelector(selector))
+      .map(this::findElementByCssSelector)
       .collect(Collectors.toList());
   }
 
