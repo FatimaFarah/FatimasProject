@@ -43,6 +43,11 @@ public class HomePageTest extends BaseIT{
   }
 
   @Test
+  public void getMenuTabsText() {
+    homePage.getSubHeadings().forEach(heading -> System.out.println(heading.getText()));
+  }
+
+  @Test
   public void printHeadingAndSubheading() {
     System.out.println(homePage.getPageTitle().getText());
     System.out.println(homePage.getSubheading().getText());
