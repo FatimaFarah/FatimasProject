@@ -3,6 +3,7 @@ package Tests;
 import Pages.HomePage;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertTrue;
 
