@@ -7,10 +7,12 @@ public class ArraysPractice {
 
     int[] listOfNumbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 
-    for (int i = 0; i < 4; i++) {
-      System.out.println(listOfNumbers[i]);
+    for (int i = 0; i < listOfNumbers.length; i++) {
+      if (listOfNumbers[i] < 4) {
+        System.out.println(listOfNumbers[i]);
+      }
 
     }
-
   }
+
 }

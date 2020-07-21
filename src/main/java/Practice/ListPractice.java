@@ -18,10 +18,12 @@ public class ListPractice {
     listTest.add(8);
     listTest.add(9);
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < listTest.size(); i++) {
 
-      System.out.println((i));
+      if (listTest.get(i) < 4) {
+        System.out.println((listTest.get(i)));
+      }
+
     }
-
   }
 }
