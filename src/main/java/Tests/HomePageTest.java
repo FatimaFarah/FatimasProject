@@ -61,5 +61,11 @@ public class HomePageTest extends BaseIT{
     homePage.findAllLikeButtons().forEach(WebElement::isDisplayed);
   }
 
+  @Test
+  public void printLikeAmountsPerBlog() {
+  homePage.getLikeAmounts().forEach(WebElement::getText);
+
+  }
+
 
 }
