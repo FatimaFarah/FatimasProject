@@ -53,9 +53,9 @@ public class HomePageTest extends BaseIT{
     System.out.println(homePage.getPageTitle().getText());
     System.out.println(homePage.getSubheading().getText());
   }
-  
+
   @Test
-  public void socialMediaButtons() {
+  public void checkIfSocialMediaButtonsAreDisplayed() {
     homePage.findAllTwitterButtons().forEach(WebElement::isDisplayed);
     homePage.findAllFacebookButtons().forEach(WebElement::isDisplayed);
     homePage.findAllLikeButtons().forEach(WebElement::isDisplayed);
