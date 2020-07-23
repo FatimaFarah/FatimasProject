@@ -3,6 +3,8 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.Arrays;
 import java.util.List;
@@ -65,4 +67,23 @@ public class HomePage extends BasePage {
   private WebElement findElementByCssSelector(String selector) {
     return getDriver().findElement(By.cssSelector(selector));
   }
-}
+  public WebElement getSharingSelector() {
+    return until(ExpectedConditions.presenceOfElementLocated
+        (By.cssSelector("#sharedaddy sd-sharing-enabled")));
+
+    }
+
+    //social media buttons
+
+  public List<WebElement> findAllTwitterButtons() {
+    return getDriver().findElements(By.cssSelector(".share-twitter"));
+  }
+  public List<WebElement> findAllFacebookButtons() {
+    return getDriver().findElements(By.cssSelector(".share-facebook"));
+  }
+  public List<WebElement> findAllLikeButtons() {
+    return getDriver().findElements(By.cssSelector(".wpl-button like"));
+  }
+  }
+
+
