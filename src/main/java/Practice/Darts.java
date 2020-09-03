@@ -25,6 +25,16 @@ public class Darts {
     //Leave 25 and 50 outside of loop as they dont match the pattern of the rest of the numbers
     scores.add(25);
     scores.add(50);
+
+    for (int i = 0; i < scores.size() ; i++) {
+      if (scores.equals(25)) {
+        //leave out of loop
+      }
+
+      if (scores.equals(50)) {
+        //leave out of loop
+      }
+    }
     return scores;
   }
 
