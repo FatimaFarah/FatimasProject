@@ -13,6 +13,8 @@ public class Darts {
   This method will return a list but each entry will have 3 numbers ie {first dart, second dart, third dart}.
   Left the return type as void for now just so it compiles.
    */
+  
+
   private void getPossibleCombinationsOf3Darts() {
 
   }
@@ -22,18 +24,15 @@ public class Darts {
 
     //Todo:: Loop to add numbers 1-20 their double and their triples.
 
-    //Leave 25 and 50 outside of loop as they dont match the pattern of the rest of the numbers
-    scores.add(25);
-    scores.add(50);
+    for (int i = 0; i < 21; i++) {
+      scores.add(2 * i);
+      scores.add(3 * i);
 
-    for (int i = 0; i < scores.size() ; i++) {
-      if (scores.equals(25)) {
-        //leave out of loop
-      }
+      //Leave 25 and 50 outside of loop as they dont match the pattern of the rest of the numbers
 
-      if (scores.equals(50)) {
-        //leave out of loop
-      }
+    }
+    if (scores.equals(25) || (scores.equals(50))) {
+      
     }
     return scores;
   }
