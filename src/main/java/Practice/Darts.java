@@ -30,9 +30,9 @@ public class Darts {
 
       //Leave 25 and 50 outside of loop as they dont match the pattern of the rest of the numbers
 
-    }
-    if (scores.equals(25) || (scores.equals(50))) {
-      
+      if (scores.equals(25) || (scores.equals(50))) {
+        scores.remove(25 || 50);
+      }
     }
     return scores;
   }
