@@ -8,8 +8,13 @@ public class Feminism extends BasePage {
   public Feminism(WebDriver driver) {
     super(driver);
   }
-  //Methods
+    //Site title and description methods
+    public WebElement getSiteTitle(){
+    return getDriver().findElement(By.cssSelector(".site-title")); }
+    public WebElement getSiteDescription() {
+    return getDriver().findElement(By.cssSelector(".site-description")); }
+
     public WebElement getCategoryTextFeminism(){
-      return getDriver().findElement(By.cssSelector(".page-title"));
-    }
+    return getDriver().findElement(By.cssSelector(".page-title")); }
+
   }
