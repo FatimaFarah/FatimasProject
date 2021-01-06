@@ -56,10 +56,4 @@ public class HomePageTest extends BaseIT{
     System.out.println(homePage.getSubheading().getText());
   }
 
-  @Test
-  public void clickFeminismTabAndGetText() {
-    homePage.getFeminismSubheading().click();
-    System.out.println(feminism.getCategoryTextFeminism().getText());
-  }
-
 }
