@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class HomePageTest extends BaseIT{
@@ -31,23 +32,35 @@ public class HomePageTest extends BaseIT{
 
   @Test
   public void clickFeminismMenuTab() {
-    actions(homePage.getFeminismSubheading()).click();
+    homePage.clickFeminismSubheading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/category/feminism/"));
   }
 
   @Test
-  public void getMenuTabText() {
-    System.out.println(homePage.getFeminismSubheading().getText());
-    System.out.println(homePage.getBeautySubheading().getText());
-    System.out.println(homePage.getLifeStyleSubheading().getText());
-    System.out.println(homePage.getMentalHealthSubheading().getText());
-    System.out.println(homePage.getNerdySubheading().getText());
-    System.out.println(homePage.get2019Subheading().getText());
-    System.out.println(homePage.getContactSubheading().getText());
+  public void getMenuTabText() { //add in other categories
+    assertNotNull(homePage.getFeminismSubheading().getText());
   }
 
   @Test
-  public void getMenuTabsText() {
-    homePage.getSubHeadings().forEach(heading -> System.out.println(heading.getText()));
+  public void getMenuTabLinks() { //add other categories and an a to the end of selector
+    assertNotNull(homePage.getFeminismSubheading().getAttribute("href"));
+  }
+
+  @Test
+  public void getMenuTabsTextLambda() {
+    homePage.getSubHeadings().forEach(heading -> assertNotNull(heading.getText()));
+  }
+  @Test
+  public void getMenuTabsLinksLambda() {
+    homePage.getSubHeadings().forEach(heading -> assertNotNull(heading.getAttribute("href")));
+  }
+  @Test
+  public void getMenuTabsLambdaCombined() {
+    homePage.getSubHeadings().forEach(heading -> {
+      assertNotNull(heading.getText());
+      assertNotNull(heading.getAttribute("href"));
+    });
   }
 
   @Test

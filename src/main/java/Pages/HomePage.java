@@ -17,69 +17,82 @@ public class HomePage extends BasePage {
   }
 
   //Page Title
-  public WebElement getPageTitle(){
-    return getDriver().findElement(By.cssSelector(".site-title"));
+  public WebElement getPageTitle() {
+    return findElementByCssSelector(".site-title");
   }
+
   public boolean checkIfPageTitleIsDisplayed() {
     return getPageTitle().isDisplayed();
   }
-//Page Subtitle
+
+  //Page Subtitle
   public WebElement getSubheading() {
-    return getDriver().findElement(By.cssSelector(".site-description"));
+    return findElementByCssSelector(".site-description");
   }
+
   public boolean checkIfPageSubheadingIsDisplayed() {
     return getSubheading().isDisplayed();
   }
-//Menu bars
+
+  //Menu bars
   public WebElement getFeminismSubheading() {
-    return getDriver().findElement(By.cssSelector("#menu-item-660"));
+    return findElementByCssSelector("#menu-item-660 a");
   }
-  public WebElement getBeautySubheading(){
+
+  public void clickFeminismSubheading() {
+    until(ExpectedConditions.elementToBeClickable(getFeminismSubheading())).click();
+  }
+
+  public WebElement getBeautySubheading() {
     return findElementByCssSelector("#menu-item-539");
   }
-  public WebElement getLifeStyleSubheading(){
-    return getDriver().findElement(By.cssSelector("#menu-item-541"));
+
+  public WebElement getLifeStyleSubheading() {
+    return findElementByCssSelector("#menu-item-541");
   }
-  public WebElement getMentalHealthSubheading(){
-    return getDriver().findElement(By.cssSelector("#menu-item-540"));
+
+  public WebElement getMentalHealthSubheading() {
+    return findElementByCssSelector("#menu-item-540");
   }
-  public WebElement getNerdySubheading(){
-    return getDriver().findElement(By.cssSelector("#menu-item-542"));
+
+  public WebElement getNerdySubheading() {
+    return findElementByCssSelector("#menu-item-542");
   }
-  public WebElement get2019Subheading(){
-    return getDriver().findElement(By.cssSelector("#menu-item-2652"));
+
+  public WebElement get2019Subheading() {
+    return findElementByCssSelector("#menu-item-2652");
   }
-  public WebElement getContactSubheading(){
-    return getDriver().findElement(By.cssSelector("#menu-item-103"));
+
+  public WebElement getContactSubheading() {
+    return findElementByCssSelector("#menu-item-103");
   }
 
 
   public List<WebElement> getSubHeadings() {
-    return findElementsByCssSelector(Arrays.asList("#menu-item-541", "#menu-item-540"));
+    return findAllElementsByCssSelector(".menu-item a");
   }
 
   private List<WebElement> findElementsByCssSelector(List<String> selectors) {
     return selectors.stream()
-      .map(this::findElementByCssSelector)
-      .collect(Collectors.toList());
+        .map(this::findElementByCssSelector)
+        .collect(Collectors.toList());
   }
 
-  private WebElement findElementByCssSelector(String selector) {
-    return getDriver().findElement(By.cssSelector(selector));
-  }
   public WebElement getSharingSelector() {
     return until(ExpectedConditions.presenceOfElementLocated
         (By.cssSelector("#sharedaddy sd-sharing-enabled")));
 
-    }
+  }
 
-    //social media buttons
+  //social media buttons
   public List<WebElement> findAllTwitterButtons() {
     return getDriver().findElements(By.cssSelector(".share-twitter"));
   }
+
   public List<WebElement> findAllFacebookButtons() {
     return getDriver().findElements(By.cssSelector(".share-facebook"));
   }
+
   public List<WebElement> findAllLikeButtons() {
     return getDriver().findElements(By.cssSelector(".wpl-button like"));
   }
@@ -88,6 +101,6 @@ public class HomePage extends BasePage {
     return getDriver().findElements(By.cssSelector(".wpl-count-text"));
   }
 
-  }
+}
 
 

@@ -13,23 +13,21 @@ public class Feminism extends BasePage {
   }
 
   //Methods
-    public WebElement getCategoryTextFeminism(){
-    return getDriver().findElement(By.cssSelector(".page-title")); }
-
-    public List<WebElement> getAllPosts() {
-    return until(ExpectedConditions.visibilityOfAllElementsLocatedBy
-        (By.cssSelector(".post .entry-content")));
-    }
-
-    public WebElement getHrefFromPosts(WebElement post ) {
-    return post.findElement(By.cssSelector(".post .entry-content"));
-    }
-
-    public List<WebElement> getAllEntryDates() {
-    return until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector
-        (".entry-date published updated")));
-    }
-
-
-
+  public WebElement getCategoryTextFeminism() {
+    return findElementByCssSelector(".page-title");
   }
+
+  public List<WebElement> getAllPosts() {
+    return findAllElementsByCssSelector(".post .entry-content");
+  }
+
+  public WebElement getHrefFromPosts(WebElement post) {
+    return post.findElement(By.cssSelector(".post .entry-content"));
+  }
+
+  public List<WebElement> getAllEntryDates() {
+    return findAllElementsByCssSelector(".entry-date published updated");
+  }
+
+
+}
