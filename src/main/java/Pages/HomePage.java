@@ -39,32 +39,57 @@ public class HomePage extends BasePage {
     return findElementByCssSelector("#menu-item-660 a");
   }
 
+  public WebElement getBeautySubheading() {
+    return findElementByCssSelector("#menu-item-539 a");
+  }
+
+  public WebElement getLifeStyleSubheading() {
+    return findElementByCssSelector("#menu-item-541 a");
+  }
+
+  public WebElement getMentalHealthSubheading() {
+    return findElementByCssSelector("#menu-item-540 a");
+  }
+
+  public WebElement getNerdySubheading() {
+    return findElementByCssSelector("#menu-item-542 a");
+  }
+
+  public WebElement get2019Subheading() {
+    return findElementByCssSelector("#menu-item-2652 a");
+  }
+
+  public WebElement getContactSubheading() {
+    return findElementByCssSelector("#menu-item-103 a");
+  }
+
   public void clickFeminismSubheading() {
     until(ExpectedConditions.elementToBeClickable(getFeminismSubheading())).click();
   }
 
-  public WebElement getBeautySubheading() {
-    return findElementByCssSelector("#menu-item-539");
+  public void clickBeautySubHeading() {
+    until(ExpectedConditions.elementToBeClickable(getBeautySubheading())).click();
+    ;
   }
 
-  public WebElement getLifeStyleSubheading() {
-    return findElementByCssSelector("#menu-item-541");
+  public void clickLifeStyleSubHeading() {
+    until(ExpectedConditions.elementToBeClickable(getLifeStyleSubheading())).click();
   }
 
-  public WebElement getMentalHealthSubheading() {
-    return findElementByCssSelector("#menu-item-540");
+  public void clickMentalHealthSubHeading() {
+    until(ExpectedConditions.elementToBeClickable(getMentalHealthSubheading())).click();
   }
 
-  public WebElement getNerdySubheading() {
-    return findElementByCssSelector("#menu-item-542");
+  public void clickNerdySubHeading() {
+    until(ExpectedConditions.elementToBeClickable(getNerdySubheading())).click();
   }
 
-  public WebElement get2019Subheading() {
-    return findElementByCssSelector("#menu-item-2652");
+  public void click2019SubHeading() {
+    until(ExpectedConditions.elementToBeClickable(get2019Subheading())).click();
   }
 
-  public WebElement getContactSubheading() {
-    return findElementByCssSelector("#menu-item-103");
+  public void clickContactSubheading() {
+    until(ExpectedConditions.elementToBeClickable(getContactSubheading())).click();
   }
 
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class HomePageTest extends BaseIT{
+public class HomePageTest extends BaseIT {
 
   public HomePage homePage = new HomePage(driver);
   public Feminism feminism = new Feminism(driver);
@@ -26,7 +26,7 @@ public class HomePageTest extends BaseIT{
   }
 
   @Test
-  public void checkIfPageSubtitleIsDisplayed(){
+  public void checkIfPageSubtitleIsDisplayed() {
     assertTrue(homePage.checkIfPageSubheadingIsDisplayed());
   }
 
@@ -38,23 +38,39 @@ public class HomePageTest extends BaseIT{
   }
 
   @Test
-  public void getMenuTabText() { //add in other categories
+  public void getMenuTabText() {
     assertNotNull(homePage.getFeminismSubheading().getText());
+    assertNotNull(homePage.getBeautySubheading().getText());
+    assertNotNull(homePage.getLifeStyleSubheading().getText());
+    assertNotNull(homePage.getMentalHealthSubheading().getText());
+    assertNotNull(homePage.getLifeStyleSubheading().getText());
+    assertNotNull(homePage.get2019Subheading().getText());
+    assertNotNull(homePage.getContactSubheading().getText());
+
   }
 
   @Test
-  public void getMenuTabLinks() { //add other categories and an a to the end of selector
+  public void getMenuTabLinks() {
     assertNotNull(homePage.getFeminismSubheading().getAttribute("href"));
+    assertNotNull(homePage.getBeautySubheading().getAttribute("href"));
+    assertNotNull(homePage.getLifeStyleSubheading().getAttribute("href"));
+    assertNotNull(homePage.getMentalHealthSubheading().getAttribute("href"));
+    assertNotNull(homePage.getNerdySubheading().getAttribute("href"));
+    assertNotNull(homePage.get2019Subheading().getAttribute("href"));
+    assertNotNull(homePage.getContactSubheading().getAttribute("href"));
+
   }
 
   @Test
   public void getMenuTabsTextLambda() {
     homePage.getSubHeadings().forEach(heading -> assertNotNull(heading.getText()));
   }
+
   @Test
   public void getMenuTabsLinksLambda() {
     homePage.getSubHeadings().forEach(heading -> assertNotNull(heading.getAttribute("href")));
   }
+
   @Test
   public void getMenuTabsLambdaCombined() {
     homePage.getSubHeadings().forEach(heading -> {
@@ -78,8 +94,7 @@ public class HomePageTest extends BaseIT{
 
   @Test
   public void printLikeAmountsPerBlog() {
-  homePage.getLikeAmounts().forEach(WebElement::getText);
-
+    homePage.getLikeAmounts().forEach(WebElement::getText);
   }
 
 
