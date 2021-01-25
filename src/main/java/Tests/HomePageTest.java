@@ -6,9 +6,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class HomePageTest extends BaseIT{
+public class HomePageTest extends BaseIT {
 
   public HomePage homePage = new HomePage(driver);
   public Feminism feminism = new Feminism(driver);
@@ -25,29 +26,55 @@ public class HomePageTest extends BaseIT{
   }
 
   @Test
-  public void checkIfPageSubtitleIsDisplayed(){
+  public void checkIfPageSubtitleIsDisplayed() {
     assertTrue(homePage.checkIfPageSubheadingIsDisplayed());
   }
 
   @Test
   public void clickFeminismMenuTab() {
-    actions(homePage.getFeminismSubheading()).click();
+    homePage.clickFeminismSubheading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/category/feminism/"));
   }
 
   @Test
   public void getMenuTabText() {
-    System.out.println(homePage.getFeminismSubheading().getText());
-    System.out.println(homePage.getBeautySubheading().getText());
-    System.out.println(homePage.getLifeStyleSubheading().getText());
-    System.out.println(homePage.getMentalHealthSubheading().getText());
-    System.out.println(homePage.getNerdySubheading().getText());
-    System.out.println(homePage.get2019Subheading().getText());
-    System.out.println(homePage.getContactSubheading().getText());
+    assertNotNull(homePage.getFeminismSubheading().getText());
+    assertNotNull(homePage.getBeautySubheading().getText());
+    assertNotNull(homePage.getLifeStyleSubheading().getText());
+    assertNotNull(homePage.getMentalHealthSubheading().getText());
+    assertNotNull(homePage.getLifeStyleSubheading().getText());
+    assertNotNull(homePage.get2019Subheading().getText());
+    assertNotNull(homePage.getContactSubheading().getText());
   }
 
   @Test
-  public void getMenuTabsText() {
-    homePage.getSubHeadings().forEach(heading -> System.out.println(heading.getText()));
+  public void getMenuTabLinks() {
+    assertNotNull(homePage.getFeminismSubheading().getAttribute("href"));
+    assertNotNull(homePage.getBeautySubheading().getAttribute("href"));
+    assertNotNull(homePage.getLifeStyleSubheading().getAttribute("href"));
+    assertNotNull(homePage.getMentalHealthSubheading().getAttribute("href"));
+    assertNotNull(homePage.getNerdySubheading().getAttribute("href"));
+    assertNotNull(homePage.get2019Subheading().getAttribute("href"));
+    assertNotNull(homePage.getContactSubheading().getAttribute("href"));
+  }
+
+  @Test
+  public void getMenuTabsTextLambda() {
+    homePage.getSubHeadings().forEach(heading -> assertNotNull(heading.getText()));
+  }
+
+  @Test
+  public void getMenuTabsLinksLambda() {
+    homePage.getSubHeadings().forEach(heading -> assertNotNull(heading.getAttribute("href")));
+  }
+
+  @Test
+  public void getMenuTabsLambdaCombined() {
+    homePage.getSubHeadings().forEach(heading -> {
+      assertNotNull(heading.getText());
+      assertNotNull(heading.getAttribute("href"));
+    });
   }
 
   @Test
@@ -65,8 +92,7 @@ public class HomePageTest extends BaseIT{
 
   @Test
   public void printLikeAmountsPerBlog() {
-  homePage.getLikeAmounts().forEach(WebElement::getText);
-
+    homePage.getLikeAmounts().forEach(WebElement::getText);
   }
 
 
