@@ -46,7 +46,6 @@ public class HomePageTest extends BaseIT {
     assertNotNull(homePage.getLifeStyleSubheading().getText());
     assertNotNull(homePage.get2019Subheading().getText());
     assertNotNull(homePage.getContactSubheading().getText());
-
   }
 
   @Test
@@ -58,7 +57,6 @@ public class HomePageTest extends BaseIT {
     assertNotNull(homePage.getNerdySubheading().getAttribute("href"));
     assertNotNull(homePage.get2019Subheading().getAttribute("href"));
     assertNotNull(homePage.getContactSubheading().getAttribute("href"));
-
   }
 
   @Test
