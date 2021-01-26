@@ -3,6 +3,7 @@ package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -26,6 +27,10 @@ public class Feminism extends BasePage {
 
   public WebElement getContinueReadingLink() {
     return findElementByCssSelector(".more-link");
+  }
+
+  public void clickContinueReadingLink() {
+    until(ExpectedConditions.elementToBeClickable(getContinueReadingLink())).click();
   }
 
   public List<WebElement> getAllEntryDates() {

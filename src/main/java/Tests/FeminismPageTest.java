@@ -1,6 +1,7 @@
 package Tests;
 
 import Pages.Feminism;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,5 +27,12 @@ public class FeminismPageTest extends BaseIT {
     assertTrue(feminism.getContinueReadingLink().isDisplayed());
     assertNotNull(feminism.getContinueReadingLink().getAttribute("href"));
     feminism.getContinueReadingLink().getText();
+  }
+
+  @Test
+  public void clickContinueReading() {
+    feminism.clickContinueReadingLink();
+    Assert.assertTrue("Website did not navigate to continue reading link",
+        getCurrentURL().contains("/2020/06/12/i-am-sick-of-debating-my-existence/"));
   }
 }
