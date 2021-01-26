@@ -108,24 +108,6 @@ public class HomePage extends BasePage {
         (By.cssSelector("#sharedaddy sd-sharing-enabled")));
 
   }
-
-  //social media buttons
-  public List<WebElement> findAllTwitterButtons() {
-    return getDriver().findElements(By.cssSelector(".share-twitter"));
-  }
-
-  public List<WebElement> findAllFacebookButtons() {
-    return getDriver().findElements(By.cssSelector(".share-facebook"));
-  }
-
-  public List<WebElement> findAllLikeButtons() {
-    return getDriver().findElements(By.cssSelector(".wpl-button like"));
-  }
-
-  public List<WebElement> getLikeAmounts() {
-    return getDriver().findElements(By.cssSelector(".wpl-count-text"));
-  }
-
 }
 
 

@@ -2,6 +2,8 @@ package Tests;
 
 import Pages.Feminism;
 import Pages.HomePage;
+import Pages.SocialMediaButtons;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
@@ -82,18 +84,4 @@ public class HomePageTest extends BaseIT {
     System.out.println(homePage.getPageTitle().getText());
     System.out.println(homePage.getSubheading().getText());
   }
-
-  @Test
-  public void checkIfSocialMediaButtonsAreDisplayed() {
-    homePage.findAllTwitterButtons().forEach(WebElement::isDisplayed);
-    homePage.findAllFacebookButtons().forEach(WebElement::isDisplayed);
-    homePage.findAllLikeButtons().forEach(WebElement::isDisplayed);
-  }
-
-  @Test
-  public void printLikeAmountsPerBlog() {
-    homePage.getLikeAmounts().forEach(WebElement::getText);
-  }
-
-
 }
