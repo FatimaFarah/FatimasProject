@@ -40,6 +40,48 @@ public class HomePageTest extends BaseIT {
   }
 
   @Test
+  public void clickBeautyMenuTab() {
+    homePage.clickBeautySubHeading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/category/beauty/"));
+  }
+
+  @Test
+  public void clickLifeStyleMenuTab() {
+    homePage.clickLifeStyleSubHeading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/category/lifestyle/"));
+  }
+
+  @Test
+  public void clickMentalHealthMenuTab() {
+    homePage.clickMentalHealthSubHeading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/category/mental-health/"));
+  }
+
+  @Test
+  public void clickNerdyMenuTab() {
+    homePage.clickNerdySubHeading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/category/nerdy/"));
+  }
+
+  @Test
+  public void click2019MenuTab() {
+    homePage.click2019SubHeading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/category/2019-challenge/"));
+  }
+
+  @Test
+  public void clickContactMenuTab() {
+    homePage.clickContactSubheading();
+    assertTrue("Website did not navigate to subheading",
+        getCurrentURL().contains("/contact/"));
+  }
+
+  @Test
   public void getMenuTabText() {
     assertNotNull(homePage.getFeminismSubheading().getText());
     assertNotNull(homePage.getBeautySubheading().getText());
