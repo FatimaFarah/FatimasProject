@@ -39,7 +39,7 @@ public class HomePage extends BasePage {
   }
 
   public WebElement getMenuHeader(){
-    return getDriver().findElement(By.cssSelector(".menu-custom-container"));
+    return findElementByCssSelector(".menu-custom-container");
   }
 
   //Menu bars

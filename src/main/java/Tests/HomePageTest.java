@@ -127,13 +127,11 @@ public class HomePageTest extends BaseIT {
     System.out.println(homePage.getPageTitle().getText());
     System.out.println(homePage.getSubheading().getText());
   }
-  @Test
-  public void keyboardTabbing(){
-    keyboardTabbing();
-  }
 
   @Test
-  public void keyboardTabbingMenu() {
+  public void menuTabKeyboardTabbing() {keyboardTabbing();}
+
+  public void keyboardTabbing() {
     WebElement element1 = homePage.getFeminismSubheading();
     WebElement element2 = homePage.getBeautySubheading();
     WebElement element3 = homePage.getLifeStyleSubheading();
@@ -142,7 +140,7 @@ public class HomePageTest extends BaseIT {
     WebElement element6 = homePage.get2019Subheading();
     WebElement element7 = homePage.getContactSubheading();
 
-    List<WebElement> menuTabOrder = new ArrayList<>(Arrays.asList(
+    List<WebElement> tabOrder = new ArrayList<>(Arrays.asList(
         element1,
         element2,
         element3,
@@ -152,7 +150,7 @@ public class HomePageTest extends BaseIT {
         element7
     ));
 
-    keyboardTabbingSequence(homePage.getMenuHeader(), menuTabOrder);
+    keyboardTabbingSequence(homePage.getMenuHeader(), tabOrder);
 
   }
 }

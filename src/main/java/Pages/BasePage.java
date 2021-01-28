@@ -77,7 +77,7 @@ public class BasePage {
   protected List<WebElement> findAllElementsByCssSelector(String selector) {
     return until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(selector)));
   }
-  private static ExpectedCondition<Boolean> focusOnElement(WebElement element) {
+  protected static ExpectedCondition<Boolean> focusOnElement(WebElement element) {
     return new ExpectedCondition<Boolean>() {
 
       @Override
@@ -91,6 +91,7 @@ public class BasePage {
       }
     };
   }
+
   public static void keyboardTabbingSequence(WebElement focusOnFirst, List<WebElement> elements) {
     focusOnFirst.click();
     for (WebElement element : elements) {
