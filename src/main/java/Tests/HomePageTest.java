@@ -1,8 +1,6 @@
 package Tests;
 
-import Pages.Feminism;
 import Pages.HomePage;
-import Pages.SocialMediaButtons;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,8 +12,6 @@ import static org.junit.Assert.assertTrue;
 public class HomePageTest extends BaseIT {
 
   public HomePage homePage = new HomePage(driver);
-  public Feminism feminism = new Feminism(driver);
-
 
   @Before
   public void openURL() {
