@@ -34,6 +34,14 @@ public class HomePage extends BasePage {
     return getSubheading().isDisplayed();
   }
 
+  public WebElement getSkipButton() {
+    return getDriver().findElement(By.cssSelector(".skip-link"));
+  }
+
+  public WebElement getMenuHeader(){
+    return getDriver().findElement(By.cssSelector(".menu-custom-container"));
+  }
+
   //Menu bars
   public WebElement getFeminismSubheading() {
     return findElementByCssSelector("#menu-item-660 a");
