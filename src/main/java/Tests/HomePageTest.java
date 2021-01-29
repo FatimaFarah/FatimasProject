@@ -1,18 +1,11 @@
 package Tests;
 
 import Pages.HomePage;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static Pages.BasePage.*;
 
 public class HomePageTest extends BaseIT {
 
@@ -128,29 +121,4 @@ public class HomePageTest extends BaseIT {
     System.out.println(homePage.getSubheading().getText());
   }
 
-  @Test
-  public void menuTabKeyboardTabbing() {keyboardTabbing();}
-
-  public void keyboardTabbing() {
-    WebElement element1 = homePage.getFeminismSubheading();
-    WebElement element2 = homePage.getBeautySubheading();
-    WebElement element3 = homePage.getLifeStyleSubheading();
-    WebElement element4 = homePage.getMentalHealthSubheading();
-    WebElement element5 = homePage.getNerdySubheading();
-    WebElement element6 = homePage.get2019Subheading();
-    WebElement element7 = homePage.getContactSubheading();
-
-    List<WebElement> tabOrder = new ArrayList<>(Arrays.asList(
-        element1,
-        element2,
-        element3,
-        element4,
-        element5,
-        element6,
-        element7
-    ));
-
-    keyboardTabbingSequence(homePage.getMenuHeader(), tabOrder);
-
-  }
 }

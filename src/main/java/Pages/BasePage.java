@@ -92,6 +92,14 @@ public class BasePage {
     };
   }
 
+  public void keyboardTabbingSequence(String focusOnFirst, List<WebElement> elements) {
+    getDriver().findElement(By.cssSelector(focusOnFirst)).click();
+    for (WebElement element : elements) {
+      getDriver().switchTo().activeElement().sendKeys(Keys.TAB);
+      until(focusOnElement(element));
+    }
+  }
+
   public static void keyboardTabbingSequence(WebElement focusOnFirst, List<WebElement> elements) {
     focusOnFirst.click();
     for (WebElement element : elements) {
