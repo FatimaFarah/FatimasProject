@@ -1,12 +1,11 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -119,6 +118,10 @@ public class HomePage extends BasePage {
 
   public List<WebElement> getAllThumbnails() {
     return findAllElementsByCssSelector(".post-thumbnail");
+  }
+
+  public List<WebElement> getAllPosts() {
+    return findAllElementsByCssSelector(".site-main .post");
   }
 
 }

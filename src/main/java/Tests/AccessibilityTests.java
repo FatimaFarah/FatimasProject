@@ -4,7 +4,11 @@ import Pages.HomePage;
 import Pages.SocialMediaButtons;
 import org.junit.Before;
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -43,6 +47,5 @@ public class AccessibilityTests extends BaseIT {
   public void imageAltTags() { //no alt tags on blog
     homePage.getAllThumbnails().forEach(image -> assertNull(image.getAttribute("alt")));
   }
-
 }
 
