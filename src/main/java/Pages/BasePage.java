@@ -1,12 +1,10 @@
 package Pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -76,36 +74,6 @@ public class BasePage {
   }
   protected List<WebElement> findAllElementsByCssSelector(String selector) {
     return until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(selector)));
-  }
-  protected static ExpectedCondition<Boolean> focusOnElement(WebElement element) {
-    return new ExpectedCondition<Boolean>() {
-
-      @Override
-      public Boolean apply(WebDriver driver) {
-        return element.equals(driver.switchTo().activeElement());
-      }
-
-      @Override
-      public String toString() {
-        return "element to be focused: " + element;
-      }
-    };
-  }
-
-  public void keyboardTabbingSequence(String focusOnFirst, List<WebElement> elements) {
-    getDriver().findElement(By.cssSelector(focusOnFirst)).click();
-    for (WebElement element : elements) {
-      getDriver().switchTo().activeElement().sendKeys(Keys.TAB);
-      until(focusOnElement(element));
-    }
-  }
-
-  public static void keyboardTabbingSequence(WebElement focusOnFirst, List<WebElement> elements) {
-    focusOnFirst.click();
-    for (WebElement element : elements) {
-      getDriver().switchTo().activeElement().sendKeys(Keys.TAB);
-      until(focusOnElement(element));
-    }
   }
   }
 

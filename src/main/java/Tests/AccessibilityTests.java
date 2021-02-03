@@ -1,18 +1,17 @@
 package Tests;
 
 import Pages.HomePage;
+import Pages.SocialMediaButtons;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.Keys;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import static org.junit.Assert.*;
 
-import static Pages.BasePage.keyboardTabbingSequence;
 
 public class AccessibilityTests extends BaseIT {
   public HomePage homePage = new HomePage(driver);
+  public SocialMediaButtons socialMediaButtons = new SocialMediaButtons(driver);
 
   @Before
   public void openURL() {
@@ -20,30 +19,30 @@ public class AccessibilityTests extends BaseIT {
   }
 
   @Test
-  public void menuTabKeyboardTabbing() {
-    keyboardTabbing();
+  public void keyboardTabbingMenuHeader() {
+    homePage.getFeminismSubheading().sendKeys(Keys.TAB);
+    homePage.getBeautySubheading().sendKeys(Keys.TAB);
+    homePage.getLifeStyleSubheading().sendKeys(Keys.TAB);
+    homePage.getMentalHealthSubheading().sendKeys(Keys.TAB);
+    homePage.getNerdySubheading().sendKeys(Keys.TAB);
+    homePage.get2019Subheading().sendKeys(Keys.TAB);
+    homePage.getContactSubheading().sendKeys(Keys.TAB);
   }
 
-  public void keyboardTabbing() {
-    WebElement element1 = homePage.getFeminismSubheading();
-    WebElement element2 = homePage.getBeautySubheading();
-    WebElement element3 = homePage.getLifeStyleSubheading();
-    WebElement element4 = homePage.getMentalHealthSubheading();
-    WebElement element5 = homePage.getNerdySubheading();
-    WebElement element6 = homePage.get2019Subheading();
-    WebElement element7 = homePage.getContactSubheading();
-
-    List<WebElement> tabOrder = new ArrayList<>(Arrays.asList(
-        element1,
-        element2,
-        element3,
-        element4,
-        element5,
-        element6,
-        element7
-    ));
-
-    keyboardTabbingSequence(homePage.getMenuHeader(), tabOrder); //keeps clicking nerdy tab :(
+  @Test
+  public void socialMediaButtons() { // no aria labels on the blog :(
+    socialMediaButtons.findAllFacebookButtons().forEach(button ->
+        assertNull(button.getAttribute("aria")));
+    socialMediaButtons.findAllTwitterButtons().forEach(button ->
+        assertNull(button.getAttribute("aria")));
+    socialMediaButtons.findAllLikeButtons().forEach(button ->
+        assertNull(button.getAttribute("aria")));
   }
+
+  @Test
+  public void imageAltTags() { //no alt tags on blog
+    homePage.getAllThumbnails().forEach(image -> assertNull(image.getAttribute("alt")));
+  }
+
 }
 

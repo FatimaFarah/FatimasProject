@@ -116,6 +116,11 @@ public class HomePage extends BasePage {
         (By.cssSelector("#sharedaddy sd-sharing-enabled")));
 
   }
+
+  public List<WebElement> getAllThumbnails() {
+    return findAllElementsByCssSelector(".post-thumbnail");
+  }
+
 }
 
 
