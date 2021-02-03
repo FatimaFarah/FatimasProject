@@ -13,8 +13,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 
 public class BasePage {
-  protected WebDriver driver;
-  private WebDriverWait wait;
+  private static WebDriver driver;
+  private static WebDriverWait wait;
 
   private static final int TIMEOUT = 30;
   private static final int POLLING = 100;
@@ -30,11 +30,11 @@ public class BasePage {
     PageFactory.initElements(driver, this);
   }
 
-  protected WebDriver getDriver() {
+  protected static WebDriver getDriver() {
     return driver;
   }
 
-  protected <V> V until(Function<? super WebDriver, V> isTrue) {
+  protected static <V> V until(Function<? super WebDriver, V> isTrue) {
     return wait.until(isTrue);
   }
 
@@ -75,4 +75,5 @@ public class BasePage {
   protected List<WebElement> findAllElementsByCssSelector(String selector) {
     return until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(selector)));
   }
-}
+  }
+

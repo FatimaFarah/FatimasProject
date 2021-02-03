@@ -1,12 +1,11 @@
 package Pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -32,6 +31,14 @@ public class HomePage extends BasePage {
 
   public boolean checkIfPageSubheadingIsDisplayed() {
     return getSubheading().isDisplayed();
+  }
+
+  public WebElement getSkipButton() {
+    return getDriver().findElement(By.cssSelector(".skip-link"));
+  }
+
+  public WebElement getMenuHeader(){
+    return findElementByCssSelector(".menu-custom-container");
   }
 
   //Menu bars
@@ -108,6 +115,15 @@ public class HomePage extends BasePage {
         (By.cssSelector("#sharedaddy sd-sharing-enabled")));
 
   }
+
+  public List<WebElement> getAllThumbnails() {
+    return findAllElementsByCssSelector(".post-thumbnail");
+  }
+
+  public List<WebElement> getAllPosts() {
+    return findAllElementsByCssSelector(".site-main .post");
+  }
+
 }
 
 

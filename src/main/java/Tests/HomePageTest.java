@@ -1,10 +1,8 @@
 package Tests;
 
 import Pages.HomePage;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -122,4 +120,5 @@ public class HomePageTest extends BaseIT {
     System.out.println(homePage.getPageTitle().getText());
     System.out.println(homePage.getSubheading().getText());
   }
+
 }
